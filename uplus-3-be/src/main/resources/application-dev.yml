@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+#      localhost 부분에 서버 도메인으로 변경
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/uplus_dev?useUnicode'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      username: uplus
+      password: {env.password}

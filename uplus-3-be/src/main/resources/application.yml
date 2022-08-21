@@ -1,0 +1,73 @@
+spring:
+  profiles:
+    default: local
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: >-
+          org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: >-
+          org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+  devtools:
+    livereload:
+      enabled: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+build:
+  date: '@build.date@'
+server:
+  port: '8080'
+  servlet:
+    contextPath: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+'#server':
+  address: localhost
+springfox:
+  documentation:
+    swagger:
+      use-model-v3: false
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+      springframework:
+        web: DEBUG
+      apache:
+        tiles: INFO
+      sringframework:
+        boot: DEBUG
+        security: DEBUG
+    root: INFO
+    com:
+      samsung:
+        security: DEBUG
+  file:
+    name: ./uplus.log
+management:
+  servlet:
+    context-path: /manage
+  health:
+    db:
+      enabled: true
+    default:
+      enabled: true
+    diskspace:
+
+
+
